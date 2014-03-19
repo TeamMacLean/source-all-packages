@@ -1,0 +1,13 @@
+allPackages="all-packages"
+rootDir="/tsl/software/testing/bin"
+
+for i in $(ls "$rootDir"); do
+
+        if [[ ! -d "$rootDir/$i" ]]; then
+#       echo "$rootDir/$i not a folder"
+                if [[ "$i" != "$allPackages" ]] && [[ "$i" != "create-software-"* ]]  && [[ "$i" != "create-library-"* ]]; then
+                        echo "sourcing $i"
+                        source $i
+                fi
+        fi
+done
